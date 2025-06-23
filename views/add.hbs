@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/stylesheets/add.css">
+    <style>
+        .star-rating {
+            font-size: 30px;
+            color: #ddd;
+            display: inline-block;
+        }
+
+        .star-rating .star {
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .star-rating .star:hover,
+        .star-rating .star.active {
+            color: #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Here you can add books</h1>
+    <div>
+        <form action="/add" method="POST">
+            <div>
+                <label for="title">
+                    <h3>TITLE:</h3>
+                    <input type="text" placeholder="Enter title" id="title" name="title" required>
+                </label>
+            </div>
+            <div>
+                <label for="author">
+                    <h3>Author</h3>
+                    <input type="text" placeholder="Author" id="author" name="author" required>
+                </label>
+            </div>
+            <div>
+                <label for="genre">
+                    <h3>Genre</h3>
+                    <input type="text" placeholder="Genre" id="genre" name="genre" required>
+                </label>
+            </div>
+            <div>
+                <label for="review">
+                    <h3>Review</h3>
+                    <textarea placeholder="Review" id="review" name="review" required></textarea>
+                </label>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Rating</label>
+                <div class="star-rating">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                    <input type="hidden" name="rating" id="rating-value" required>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const stars = document.querySelectorAll('.star-rating .star');
+            const ratingInput = document.getElementById('rating-value');
+
+            stars.forEach(star => {
+                star.addEventListener('click', function () {
+                    const value = this.getAttribute('data-value');
+                    ratingInput.value = value;
+
+                    stars.forEach(s => s.classList.remove('active'));
+                    for (let i = 0; i < value; i++) {
+                        stars[i].classList.add('active');
+                    }
+                });
+
+                star.addEventListener('mouseover', function () {
+                    const value = this.getAttribute('data-value');
+                    stars.forEach(s => s.classList.remove('active'));
+                    for (let i = 0; i < value; i++) {
+                        stars[i].classList.add('active');
+                    }
+                });
+
+                star.addEventListener('mouseout', function () {
+                    const currentRating = ratingInput.value;
+                    stars.forEach(s => s.classList.remove('active'));
+                    if (currentRating) {
+                        for (let i = 0; i < currentRating; i++) {
+                            stars[i].classList.add('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

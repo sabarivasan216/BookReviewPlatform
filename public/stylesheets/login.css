@@ -1,0 +1,25 @@
+body{
+ background-image: url(../images/photlibrary-2.webp); 
+}
+#form{
+background-color: hsla(120, 3%, 72%, 0.836);
+height: 300px;
+align-content: center;
+margin-left: 35%;
+width: 29%;
+display: flex;
+margin-top: 50px;
+justify-content: center;
+}
+.email{
+    height: 60px;
+
+}
+.password{
+    height: 60px;
+}
+.submit{
+
+    margin-top: 80px;
+    height: 20px;
+}

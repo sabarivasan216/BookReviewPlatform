@@ -1,0 +1,16 @@
+body{ background-color: hsla(120, 3%, 72%, 0.836);
+    background-image: url(../images/PhotoLibrary1.webp);
+}
+#formR{
+   
+        /* Semi-transparent green */
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    height: 300px;
+    width: 35%;
+    margin-left: 30%;
+}
+.buttonR{
+    margin-top: 10px;
+}

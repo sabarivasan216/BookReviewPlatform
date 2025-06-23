@@ -1,0 +1,17 @@
+body{
+    background-color: blue;
+}
+.star-rating {
+    font-size: 30px;
+    color: #ddd;
+    display: inline-block;
+}
+
+.star-rating .star {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.star-rating .star:hover,
+.star-rating .star.active {
+    color: #ffc107; }

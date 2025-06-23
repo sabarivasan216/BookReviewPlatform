@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+
+<body>
+    <div>
+        <h1>Welcome to SV Universe</h1>
+        <a href="/add"><button>Add Books</button></a>
+        <input type="search" id="search" placeholder="Search here!" name="search">
+    </div>
+
+    <h2>{{heading}}</h2>
+
+    {{#each books}}
+    <div class="book-card">
+        <h2>{{this.title}}</h2>
+        <p>Author: {{this.author}}</p>
+        <p>Genre: {{this.genre}}</p>
+        <p>Review: {{this.review}}</p>
+        <p>Rating: {{this.rating}} / 5</p>
+    </div>
+    {{/each}}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const colors = ['#FADBD8', '#D4E6F1', '#D5F5E3', '#FCF3CF', '#E8DAEF', '#F9E79F', '#AED6F1', '#F5CBA7'];
+            const cards = document.querySelectorAll('.book-card');
+            cards.forEach(card => {
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                card.style.backgroundColor = color;
+            });
+        });
+    </script>
+</body>
+
+</html>

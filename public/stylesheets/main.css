@@ -1,0 +1,75 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    padding: 20px;
+}
+#search{
+    margin-left: 250px;
+    height: 35px;
+    width: 350px;
+}
+
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.book-card {
+    justify-content: space-between;
+    display: inline-block;
+    width: 150px;
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    position: relative;
+    margin: 10px;
+}
+
+/* 🧾 Simulate pages on the right like a real book */
+.book-card::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 6px;
+    height: calc(100% - 20px);
+    background: repeating-linear-gradient(to bottom,
+            #e0e0e0,
+            #e0e0e0 2px,
+            #fff 2px,
+            #fff 4px);
+    box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 4px 4px 0;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+}
+
+.book-cover {
+    padding: 20px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book-cover h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.book-cover p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+p{
+    font-size: small;
+}
